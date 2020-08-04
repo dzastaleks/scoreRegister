@@ -14,5 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::resource('season','SeasonController');
+Route::resource('score','ScoreController');
+
+Route::get('/points', 'ScoreController@points')->name('points');

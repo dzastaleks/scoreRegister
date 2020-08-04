@@ -10905,3 +10905,12 @@ a.text-dark:focus {
   }
 }
 
+.head-dash {
+  line-height: 45px;
+}
+
+.plus {
+  float: right;
+  margin-top: 5px;
+}
+
