@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Season;
 use App\Score;
 use App\Club;
+use App\ClubTotals;
 use Illuminate\Http\Request;
 class ScoreController extends Controller
 {
@@ -60,6 +61,8 @@ class ScoreController extends Controller
             'guest_score'=>'required|numeric|min:0',
             'played_date'=>'required'
         ]);
+
+        
         $score = New Score;
         $score->season_id = $request->input('season');
         $score->host_id = $request->input('host');
@@ -68,6 +71,10 @@ class ScoreController extends Controller
         $score->guest_score = $request->input('guest_score');
         $score->played_at = $request->input('played_date');
         
+        $total_score = New ClubTotals();
+        if()
+
+
         $score->save();
         return redirect('/score')->with('success','Match saved successfully!');
 
