@@ -13,12 +13,19 @@ class ClubTotals extends Model
     public function season(){
         return $this->belongsTo('App\Season','season_id');
     }
+    public function scores(){
+        return $this->hasMany('App\Score');
+    }
     public function updateScore($request){
+
+        
         if($request->input('host_score') > $request->input('guest_score')){
-            $this::updateOrCreate([
+            $ct = ClubTotals::where('season_id',$request->input('season'))->firstOrCreate([
                 'club_id'=>$request->input('host'),
                 'season_id'=>$request->input('season')
             ])->increment('score',3);
+    
+            $ct->save();
         }
     }
 }

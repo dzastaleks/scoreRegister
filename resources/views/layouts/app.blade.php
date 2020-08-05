@@ -22,11 +22,19 @@
     <link href="/open-iconic/font/css/open-iconic-foundation.css" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-
+   
+    <style>
+        body{
+            background: url('{{asset('images/bg.jpg')}}')!important;
+            background-size:cover;
+            background-repeat:no-repeat;
+            background-position:center center;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
         
 
