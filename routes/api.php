@@ -17,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('getSeasons', 'APIController@getSeasons');
+Route::get('getClubs', 'APIController@getClubs');
+Route::get('getPosibleClubs', 'APIController@getPosibleClubs');

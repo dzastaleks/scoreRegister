@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 
 Route::resource('season','SeasonController');
 Route::resource('score','ScoreController');
 
-Route::get('/points', 'ScoreController@points')->name('points');
+Route::get('/score', 'ScoreController@index')->name('score');
+Route::post('/submit','ScoreController@store');

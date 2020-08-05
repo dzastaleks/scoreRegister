@@ -11,20 +11,22 @@
     <div class="row justify-content-center">
                 <div class="col-md-8">
             <div class="card">
-                <div class="card-header head-dash">Scores<a href="/score/create" class="btn btn-success plus"><strong>+</strong></a></div>
-                Select Season: 
-   
-                        <select name="season" class="form-control col-sm-10">
-                            <option> </option>
-                            @foreach ($seasons as $season)
-                        <option value="{{$season->id}}">{{$season->name}} </option>
-        
-        
-                            @endforeach
-                        </select>
-          
-               
+                <div class="card-header head-dash">Latest Scores<a href="/score/create" class="btn btn-success plus"><strong>+</strong></a></div>
+                
                 <div class="card-body">
+                    <div class="form-group">
+                        <label for="Season">Select Season: </label> 
+           
+                                <select name="season" class="form-control">
+                                    <option> </option>
+                                    @foreach ($seasons as $season)
+                                <option value="{{$season->id}}">{{$season->name}} </option>
+                          
+                
+                                    @endforeach
+                                </select>
+                  
+                            </div>
                 <table class="table table-hover">
                     <thead>
                         <tr>

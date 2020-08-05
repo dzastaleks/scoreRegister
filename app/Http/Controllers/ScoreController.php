@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Season;
 use App\Score;
 use App\Club;
+use App\ClubTotals;
+use App\Rules\isInScores;
 use Illuminate\Http\Request;
 class ScoreController extends Controller
 {
@@ -52,14 +54,17 @@ class ScoreController extends Controller
     public function store(Request $request)
     {
         //
+       
        $this->validate($request,[
             'season'=>'required',
-            'host'=>'required',
-            'guest'=>'required',
+            'host'=> 'required',
+            'guest'=> ['required',new isInScores($request->host,$request->guest,$request->season)],
             'host_score'=>'required|numeric|min:0',
             'guest_score'=>'required|numeric|min:0',
-            'played_date'=>'required'
+            'played_date'=>'required|date'
         ]);
+
+         
         $score = New Score;
         $score->season_id = $request->input('season');
         $score->host_id = $request->input('host');
@@ -67,9 +72,11 @@ class ScoreController extends Controller
         $score->host_score = $request->input('host_score');
         $score->guest_score = $request->input('guest_score');
         $score->played_at = $request->input('played_date');
-        
+
+
+
         $score->save();
-        return redirect('/score')->with('success','Match saved successfully!');
+        return redirect('/score');
 
     }
 

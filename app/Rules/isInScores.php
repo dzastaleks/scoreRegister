@@ -11,9 +11,12 @@ class isInScores implements Rule
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($host, $guest,$season)
     {
         //
+        $this->host=$host;
+        $this->guest = $guest;
+        $this->season = $season;
     }
 
     /**
@@ -25,7 +28,12 @@ class isInScores implements Rule
      */
     public function passes($attribute, $value)
     {
-       return Score::where('host_id','==',$value)->where('guest_id','==',$value)->count()==0;
+       $isExist = Score::where(['host_id'=>$this->host,'guest_id'=>$this->guest,'season_id'=>$this->season])->count();
+
+       if($isExist>0){
+           return false;
+       }
+       return true;
     }
 
     /**
