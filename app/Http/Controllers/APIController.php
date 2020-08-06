@@ -13,7 +13,7 @@ class APIController extends Controller
 
     public function getSeasons(){
         
-        $seasons = Season::get();
+        $seasons = Season::latest()->get();
         return response()->json($seasons);
     }
     public function getClubs(){
@@ -37,9 +37,9 @@ class APIController extends Controller
 
 
     }
-    public function getLatestScores()
+    public function getLatestScores(Request $request)
     {
-        $scores = Score::with(['host_club','guest_club'])->latest()->take(10)->get();
+        $scores = Score::where('season_id',$request['season_id'])->with(['host_club','guest_club'])->latest()->take(10)->get();
         return response()->json($scores);
     }
 }

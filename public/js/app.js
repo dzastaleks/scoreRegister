@@ -2093,24 +2093,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {//console.log('Component mounted.')
   },
   data: function data() {
     return {
       score: undefined,
-      scores: []
+      scores: [],
+      season: 1,
+      seasons: []
     };
   },
   methods: {
     getLatestScores: function getLatestScores() {
-      axios.get('/api/getLatestScores').then(function (response) {
+      axios.get('/api/getLatestScores', {
+        params: {
+          season_id: this.season
+        }
+      }).then(function (response) {
         this.scores = response.data;
-        console.log(response.data);
+      }.bind(this));
+    },
+    getSeasons: function getSeasons() {
+      axios.get('/api/getSeasons').then(function (response) {
+        this.seasons = response.data;
       }.bind(this));
     }
   },
   created: function created() {
+    this.getSeasons();
     this.getLatestScores();
   }
 });
@@ -38024,52 +38041,102 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("table", { staticClass: "table table-hover scores-table" }, [
-    _vm._m(0),
-    _vm._v(" "),
-    _c(
-      "tbody",
-      _vm._l(_vm.scores, function(data) {
-        return _c("tr", [
-          _c("td", [
-            _vm._v(
-              "\n                    " +
-                _vm._s(data.host_club.name) +
-                "\n                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("td", [
-            _vm._v(
-              "\n                    " +
-                _vm._s(data.host_score) +
-                "\n                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("td", [
-            _vm._v("\n                        :\n                    ")
-          ]),
-          _vm._v(" "),
-          _c("td", [
-            _vm._v(
-              "\n                    " +
-                _vm._s(data.guest_score) +
-                "\n\n                    "
-            )
-          ]),
-          _vm._v(" "),
-          _c("td", [
-            _vm._v(
-              "\n                        " +
-                _vm._s(data.guest_club.name) +
-                "\n                    "
-            )
+  return _c("div", [
+    _c("div", { staticClass: "form-group" }, [
+      _c("label", [_vm._v("Season:")]),
+      _vm._v(" "),
+      _c(
+        "select",
+        {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.season,
+              expression: "season"
+            }
+          ],
+          staticClass: "form-control",
+          attrs: { name: "season" },
+          on: {
+            change: [
+              function($event) {
+                var $$selectedVal = Array.prototype.filter
+                  .call($event.target.options, function(o) {
+                    return o.selected
+                  })
+                  .map(function(o) {
+                    var val = "_value" in o ? o._value : o.value
+                    return val
+                  })
+                _vm.season = $event.target.multiple
+                  ? $$selectedVal
+                  : $$selectedVal[0]
+              },
+              function($event) {
+                return _vm.getLatestScores()
+              }
+            ]
+          }
+        },
+        _vm._l(_vm.seasons, function(data) {
+          return _c("option", { domProps: { value: data.id } }, [
+            _vm._v(_vm._s(data.name))
           ])
-        ])
-      }),
-      0
-    )
+        }),
+        0
+      )
+    ]),
+    _vm._v(" "),
+    _c("table", { staticClass: "table table-hover scores-table" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c(
+        "tbody",
+        _vm._l(_vm.scores, function(data) {
+          return _c("tr", [
+            _c("td", [
+              _vm._v(
+                "\r\n                        " +
+                  _vm._s(data.host_club.name) +
+                  "\r\n                        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                "\r\n                        " +
+                  _vm._s(data.host_score) +
+                  "\r\n                        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                "\r\n                            :\r\n                        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                "\r\n                        " +
+                  _vm._s(data.guest_score) +
+                  "\r\n\r\n                        "
+              )
+            ]),
+            _vm._v(" "),
+            _c("td", [
+              _vm._v(
+                "\r\n                            " +
+                  _vm._s(data.guest_club.name) +
+                  "\r\n                        "
+              )
+            ])
+          ])
+        }),
+        0
+      )
+    ])
   ])
 }
 var staticRenderFns = [
