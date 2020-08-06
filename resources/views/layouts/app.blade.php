@@ -27,8 +27,9 @@
         body{
             background: url('{{asset('images/bg.jpg')}}')!important;
             background-size:cover;
-            background-repeat:no-repeat;
+            background-repeat:no-repeat no-repeat;
             background-position:center center;
+            background-attachment:static;
         }
     </style>
 </head>

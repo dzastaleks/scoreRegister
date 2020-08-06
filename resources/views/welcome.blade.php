@@ -18,7 +18,7 @@
                  
                  
                     
-            <score-component></score-component>
+                    <ranking-component></ranking-component>
                      
                 </div></div>
 

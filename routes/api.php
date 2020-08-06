@@ -23,3 +23,4 @@ Route::get('getClubs', 'APIController@getClubs');
 Route::get('getPosibleClubs', 'APIController@getPosibleClubs');
 
 Route::get('getLatestScores', 'APIController@getLatestScores');
+Route::get('getRankings', 'APIController@getRankings');

@@ -20,6 +20,7 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 Vue.component('club-component', require('./components/club-component.vue').default);
 Vue.component('score-component', require('./components/score-component.vue').default);
+Vue.component('ranking-component', require('./components/ranking-component.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
