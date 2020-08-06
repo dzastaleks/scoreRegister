@@ -2118,6 +2118,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (response) {
         this.scores = response.data;
+        console.log(this.seasons.length);
       }.bind(this));
     },
     getSeasons: function getSeasons() {
@@ -2127,8 +2128,7 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   created: function created() {
-    this.getSeasons();
-    this.getLatestScores();
+    this.getSeasons(), this.getLatestScores();
   }
 });
 
