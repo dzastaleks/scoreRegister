@@ -37,4 +37,9 @@ class APIController extends Controller
 
 
     }
+    public function getLatestScores()
+    {
+        $scores = Score::with(['host_club','guest_club'])->latest()->take(10)->get();
+        return response()->json($scores);
+    }
 }

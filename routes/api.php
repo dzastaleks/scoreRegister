@@ -21,3 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('getSeasons', 'APIController@getSeasons');
 Route::get('getClubs', 'APIController@getClubs');
 Route::get('getPosibleClubs', 'APIController@getPosibleClubs');
+
+Route::get('getLatestScores', 'APIController@getLatestScores');
