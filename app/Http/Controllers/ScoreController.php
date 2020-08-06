@@ -72,7 +72,30 @@ class ScoreController extends Controller
         $score->host_score = $request->input('host_score');
         $score->guest_score = $request->input('guest_score');
         $score->played_at = $request->input('played_date');
+
+        $ct_count= ClubTotals::where(['club_id'=>$request->input('host'),'season_id'=>$request->input('season')])->count();
+        if($ct_count==1){
+            $club_total = ClubTotals::find(['club_id'=>$request->input('host'),'season_id'=>$request->input('season')]);
+            $club_total->club_id = $request->input('host');
+            $club_total->season_id = $request->input('season');
+            $club_total->score = 3;
+            $club_total->save();
+        }
+        else{
+            $club_total = new ClubTotals;
+            $club_total->club_id = $request->input('host');
+            $club_total->season_id = $request->input('season');
+            $club_total->score = 3;
+            $club_total->save();
+
+        }
+        
+
         $score->save();
+
+ 
+        
+        
         return redirect('/score');
 
     }
