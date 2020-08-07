@@ -66,7 +66,7 @@
                                 <a class="nav-link {{Request::is('season') ? 'active' : ''}}" href="/season"><i class="fas fa-layer-group"></i> {{ __('Seasons') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{Request::is('rankings') ? 'active' : ''}}" href="/rankings"><i class="fas fa-table"></i> {{ __('Rankings') }}</a>
+                                <a class="nav-link {{Request::is('rankings') ? 'active' : ''}}" href="/rankings"><i class="fas fa-table"></i> {{ __('Ranking List') }}</a>
                             </li>
                            
                     </ul>
