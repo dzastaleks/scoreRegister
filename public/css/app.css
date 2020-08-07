@@ -10947,3 +10947,22 @@ nav {
   text-align: center;
 }
 
+.main {
+  text-align: center;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  padding-top: 30%;
+  overflow: hidden;
+  overflow-y: hidden;
+}
+
+.main h1 {
+  font-size: 84px;
+}
+
+.main .btn {
+  margin-top: 40px;
+  font-size: 22px;
+}
+

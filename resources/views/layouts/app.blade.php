@@ -53,7 +53,23 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                
+                    <ul class="navbar-nav ml-auto">
+                      
+                     
+                        <li class="nav-item">
+                                <a class="nav-link {{Request::is('/') ? 'active' : ''}}" href="/"><i class="fas fa-home"></i> {{ __('Home') }}</a>
+                            </li>
+                        <li class="nav-item">
+                                <a class="nav-link {{Request::is('score') ? 'active' : ''}}" href="/score"><i class="fas fa-poll-h"></i> {{ __('Scores') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{Request::is('season') ? 'active' : ''}}" href="/season"><i class="fas fa-layer-group"></i> {{ __('Seasons') }}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{Request::is('rankings') ? 'active' : ''}}" href="/rankings"><i class="fas fa-table"></i> {{ __('Rankings') }}</a>
+                            </li>
+                           
+                    </ul>
                 </div>
             </div>
         </nav>
