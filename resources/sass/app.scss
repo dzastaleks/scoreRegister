@@ -6,7 +6,9 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-
+body{
+    padding-top: 60px;
+}
 .head-dash{
     line-height: 45px;
 }
@@ -25,11 +27,14 @@ nav{
     color: #333;
 }
 .card{
-    background-color: rgba(253, 253, 253, 0.5);
+    background-color: rgba(253, 253, 253, 0.8);
 }
 .card-body > table{
     color:#333;
 }
 .bg-dark{
     background-color: #212529!important;
+}
+.scores-table{
+    text-align: center;
 }

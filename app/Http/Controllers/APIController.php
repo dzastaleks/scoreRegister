@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Club;
+use App\ClubTotals;
 use App\Score;
 use App\Season;
 
@@ -13,7 +14,7 @@ class APIController extends Controller
 
     public function getSeasons(){
         
-        $seasons = Season::get();
+        $seasons = Season::orderBy('id', 'desc')->get();
         return response()->json($seasons);
     }
     public function getClubs(){
@@ -36,5 +37,21 @@ class APIController extends Controller
 
 
 
+    }
+    public function getLatestScores(Request $request)
+    {
+        $scores = Score::where('season_id',$request['season_id'])->with(['host_club','guest_club'])->latest()->get();
+        return response()->json($scores);
+    }
+    public function getRankings(Request $request)
+    {
+        $club = Club::get();
+        $nesto = Club::with(['total_scores'=>function($query) use($request){
+            $query->where('season_id',$request['season_id']);
+        }])->get();
+
+        
+        return response()->json($nesto);
+        
     }
 }

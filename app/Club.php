@@ -22,4 +22,5 @@ class Club extends Model
         return $this->all()->except($selectID);
         
     }
+   
 }

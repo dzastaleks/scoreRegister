@@ -26,15 +26,16 @@
     <style>
         body{
             background: url('{{asset('images/bg.jpg')}}')!important;
-            background-size:cover;
-            background-repeat:no-repeat;
-            background-position:center center;
+            background-size:cover!important;
+            background-repeat:no-repeat no-repeat!important;
+            background-position:center center!important;
+            background-attachment:fixed!important;
         }
     </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm fixed-top">
             <div class="container">
         
 

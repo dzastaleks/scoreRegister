@@ -17,7 +17,7 @@ class CreateClubTotalsTable extends Migration
             $table->id();
             $table->bigInteger('club_id')->unsigned()->index();;
             $table->bigInteger('season_id')->unsigned()->index();;
-            $table->integer('score'); 
+            $table->integer('score')->default(0); 
             $table->timestamps();
 
             $table->foreign('season_id')->references('id')->on('seasons')->onDelete('cascade');

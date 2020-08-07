@@ -72,7 +72,18 @@ class ScoreController extends Controller
         $score->host_score = $request->input('host_score');
         $score->guest_score = $request->input('guest_score');
         $score->played_at = $request->input('played_date');
+
+
+           
+        $cts = new ClubTotals();
+        $cts->updateTotalScore($request);
+        
+
         $score->save();
+
+ 
+        
+        
         return redirect('/score');
 
     }
