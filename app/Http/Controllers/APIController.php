@@ -45,13 +45,13 @@ class APIController extends Controller
     }
     public function getRankings(Request $request)
     {
-        $club = Club::get();
-        $nesto = Club::with(['total_scores'=>function($query) use($request){
-            $query->where('season_id',$request['season_id']);
-        }])->get();
-
+       
         
-        return response()->json($nesto);
+      $club = Club::leftJoin('club_totals',function($q) use($request){
+        $q->on('clubs.id','=','club_totals.club_id')->where('club_totals.season_id',$request['season_id']);
+    })->orderBy('score','Desc')->get();
+        
+        return response()->json($club);
         
     }
 }

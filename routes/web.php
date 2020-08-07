@@ -22,3 +22,5 @@ Route::resource('score','ScoreController');
 
 Route::get('/score', 'ScoreController@index')->name('score');
 Route::post('/submit','ScoreController@store');
+
+Route::get('/nesto','ClubController@index');

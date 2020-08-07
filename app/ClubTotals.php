@@ -10,7 +10,6 @@ class ClubTotals extends Model
     protected $fillable = ['club_id','season_id','score'];
 
 
-
     public function club(){
         return $this->belongsTo('App\Club','club_id');
     }

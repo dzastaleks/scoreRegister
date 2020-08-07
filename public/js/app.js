@@ -38186,7 +38186,7 @@ var render = function() {
               _vm._v(
                 "\r\n                        " +
                   _vm._s(index + 1) +
-                  "\r\n                        "
+                  " \r\n                        "
               )
             ]),
             _vm._v(" "),
@@ -38199,13 +38199,11 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("td", [
-              typeof data.total_scores[0] !== "undefined"
-                ? _c("span", [_vm._v(_vm._s(data.total_scores[0].score))])
+              data.score !== null
+                ? _c("span", [_vm._v(_vm._s(data.score))])
                 : _vm._e(),
               _vm._v(" "),
-              typeof data.total_scores[0] === "undefined"
-                ? _c("span", [_vm._v(_vm._s(0))])
-                : _vm._e()
+              data.score === null ? _c("span", [_vm._v(_vm._s(0))]) : _vm._e()
             ])
           ])
         }),

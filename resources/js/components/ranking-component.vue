@@ -16,26 +16,26 @@
 
                     </thead>
                     <tbody>
-                    <tr v-for="(data, index) in rankings "  :key="data.id">
-                        <td>
-                        {{ index + 1 }}
+                    <tr v-for="(data, index) in rankings"  :key="data.id" >
+                       
+                        <td >
+                        {{ index + 1 }} 
                         </td>
                         <td>
                         {{ data.name }}
                         </td>
-                  
                         <td>
-                        <span v-if="typeof data.total_scores[0] !== 'undefined'">{{data.total_scores[0].score}}</span>
-                        <span v-if="typeof data.total_scores[0] === 'undefined'">{{0}}</span>
-
+                         
+                            <span v-if="data.score !== null">{{data.score}}</span>
+                             <span v-if="data.score === null">{{0}}</span>
+                       
                         </td>
-                        
                     </tr>
                     </tbody>
                 </table>        
 </div>
 </template>
-<script>  
+<script>    
     export default {
         mounted() {
             //console.log('Component mounted.')
@@ -72,6 +72,8 @@
             this.getSeasons(),
             this.getRankings()
         }
+        
+
 
     }
 </script>

@@ -12,7 +12,7 @@ class Club extends Model
         return $this->hasMany('App\Score');
     }
 
-    public function total_scores(){
+    public function club_totals(){
         return $this->hasMany('App\ClubTotals');
     }
     public function getAll(){
@@ -22,5 +22,5 @@ class Club extends Model
         return $this->all()->except($selectID);
         
     }
-   
+    
 }
