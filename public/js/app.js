@@ -2092,6 +2092,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {//console.log('Component mounted.')
   },
@@ -37847,9 +37849,11 @@ var render = function() {
             _c("option", { attrs: { value: "" } }),
             _vm._v(" "),
             _vm._l(_vm.seasons, function(data) {
-              return _c("option", { domProps: { value: data.id } }, [
-                _vm._v(_vm._s(data.name))
-              ])
+              return _c(
+                "option",
+                { key: data.id, domProps: { value: data.id } },
+                [_vm._v(_vm._s(data.name))]
+              )
             })
           ],
           2
@@ -37905,9 +37909,11 @@ var render = function() {
                 _c("option", { attrs: { value: "" } }),
                 _vm._v(" "),
                 _vm._l(_vm.clubs, function(data) {
-                  return _c("option", { domProps: { value: data.id } }, [
-                    _vm._v(_vm._s(data.name))
-                  ])
+                  return _c(
+                    "option",
+                    { key: data.id, domProps: { value: data.id } },
+                    [_vm._v(_vm._s(data.name))]
+                  )
                 })
               ],
               2
@@ -37958,9 +37964,11 @@ var render = function() {
                 _c("option", { attrs: { value: "" } }),
                 _vm._v(" "),
                 _vm._l(_vm.pos_clubs, function(data) {
-                  return _c("option", { domProps: { value: data.id } }, [
-                    _vm._v(_vm._s(data.name))
-                  ])
+                  return _c(
+                    "option",
+                    { key: data.id, domProps: { value: data.id } },
+                    [_vm._v(_vm._s(data.name))]
+                  )
                 })
               ],
               2
@@ -38159,7 +38167,7 @@ var render = function() {
           }
         },
         _vm._l(_vm.seasons, function(data) {
-          return _c("option", { domProps: { value: data.id } }, [
+          return _c("option", { key: data.id, domProps: { value: data.id } }, [
             _vm._v(_vm._s(data.name))
           ])
         }),
@@ -38173,7 +38181,7 @@ var render = function() {
       _c(
         "tbody",
         _vm._l(_vm.rankings, function(data, index) {
-          return _c("tr", [
+          return _c("tr", { key: data.id }, [
             _c("td", [
               _vm._v(
                 "\r\n                        " +
@@ -38191,11 +38199,13 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("td", [
-              _vm._v(
-                "\r\n                        " +
-                  _vm._s(data.score) +
-                  "\r\n\r\n                        "
-              )
+              typeof data.total_scores[0] !== "undefined"
+                ? _c("span", [_vm._v(_vm._s(data.total_scores[0].score))])
+                : _vm._e(),
+              _vm._v(" "),
+              typeof data.total_scores[0] === "undefined"
+                ? _c("span", [_vm._v(_vm._s(0))])
+                : _vm._e()
             ])
           ])
         }),
@@ -38294,7 +38304,7 @@ var render = function() {
       _c(
         "tbody",
         _vm._l(_vm.scores, function(data) {
-          return _c("tr", [
+          return _c("tr", { key: data.id }, [
             _c("td", [
               _vm._v(
                 "\r\n                        " +

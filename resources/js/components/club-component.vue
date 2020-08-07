@@ -4,7 +4,7 @@
                             <label>Season:</label>
                             <select class='form-control' name="season" v-model='season' @change='seasonChanged()'>
                               <option value=''></option>
-                              <option v-for='data in seasons' :value='data.id'>{{ data.name }}</option>
+                              <option v-for='data in seasons' :value='data.id' :key="data.id">{{ data.name }}</option>
                             </select>
                             <div v-if="errors && errors.season" class="text-danger">{{ errors.season[0] }}</div>
                         </div>
@@ -14,7 +14,7 @@
                             <label>Host</label>
                             <select class='form-control' name="host" v-model='club' @change='clubChanged()'>
                               <option value=''></option>
-                              <option v-for='data in clubs' :value='data.id'>{{ data.name }}</option>
+                              <option v-for='data in clubs' :value='data.id' :key="data.id">{{ data.name }}</option>
                             </select>
                             <div v-if="errors && errors.host" class="text-danger">{{ errors.host[0] }}</div>
 
@@ -25,7 +25,7 @@
                             <label>Guest</label>
                             <select class='form-control' name="guest" v-model='pos_club' >
                               <option value=''></option>
-                              <option v-for='data in pos_clubs' :value='data.id'>{{ data.name }}</option>
+                              <option v-for='data in pos_clubs' :value='data.id' :key="data.id">{{ data.name }}</option>
                             </select>
                             <div v-if="errors && errors.guest" class="text-danger">{{ errors.guest[0] }}</div>
 

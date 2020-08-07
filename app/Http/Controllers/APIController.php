@@ -41,17 +41,17 @@ class APIController extends Controller
     public function getLatestScores(Request $request)
     {
         $scores = Score::where('season_id',$request['season_id'])->with(['host_club','guest_club'])->latest()->get();
-      
+        return response()->json($scores);
     }
     public function getRankings(Request $request)
     {
         $club = Club::get();
+        $nesto = Club::with(['total_scores'=>function($query) use($request){
+            $query->where('season_id',$request['season_id']);
+        }])->get();
 
-        $rankings = ClubTotals::where('season_id',$request['season_id'])->with('club')->orderBy('score','DESC')->get();
-        $mer = $club->toBase($rankings);
-        $final = $mer->all();
         
-                return response()->json($club);
+        return response()->json($nesto);
         
     }
 }

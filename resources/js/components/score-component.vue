@@ -18,7 +18,7 @@
 
                     </thead>
                     <tbody>
-                    <tr v-for="data in scores">
+                    <tr v-for="data in scores" :key="data.id">
                         <td>
                         {{ data.host_club.name }}
                         </td>

@@ -3,7 +3,7 @@
                 <div class="form-group">
                             <label>Season:</label>
                             <select class='form-control' name="season" v-model='season' @change='getRankings()'>
-                              <option v-for='data in seasons' :value='data.id'>{{ data.name }}</option>
+                              <option v-for='data in seasons' :value='data.id' :key="data.id">{{ data.name }}</option>
                             </select>
                         </div>
     <table class="table table-hover scores-table">
@@ -16,7 +16,7 @@
 
                     </thead>
                     <tbody>
-                    <tr v-for="(data, index) in rankings">
+                    <tr v-for="(data, index) in rankings "  :key="data.id">
                         <td>
                         {{ index + 1 }}
                         </td>
@@ -25,9 +25,11 @@
                         </td>
                   
                         <td>
-                        {{ data.score  }}
+                        <span v-if="typeof data.total_scores[0] !== 'undefined'">{{data.total_scores[0].score}}</span>
+                        <span v-if="typeof data.total_scores[0] === 'undefined'">{{0}}</span>
 
                         </td>
+                        
                     </tr>
                     </tbody>
                 </table>        
@@ -70,5 +72,6 @@
             this.getSeasons(),
             this.getRankings()
         }
+
     }
 </script>
