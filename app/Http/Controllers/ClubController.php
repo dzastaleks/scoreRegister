@@ -16,18 +16,7 @@ class ClubController extends Controller
 
     public function index()
     {
-        //
-        //$join = Club::leftJoin('club_totals','clubs.id','=','club_totals.club_id')->orderBy('club_totals.score','DESC')->get();
-
-        //$club = Club::with('club_totals')->get();
-        $request['season_id'] = 1;
-
-        $club = Club::leftJoin('club_totals',function($q) use($request){
-            $q->on('clubs.id','=','club_totals.club_id')->where('club_totals.season_id',$request['season_id']);
-        })->orderBy('score','Desc')->get();
-       
         
-        dd($club);
     }
 
     /**
@@ -94,5 +83,9 @@ class ClubController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function totals()
+    {
+        return view('rankings.index');
     }
 }
