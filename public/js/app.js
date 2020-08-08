@@ -2094,6 +2094,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {//console.log('Component mounted.')
   },
@@ -2138,6 +2140,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -38175,40 +38179,42 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-hover scores-table" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.rankings, function(data, index) {
-          return _c("tr", { key: data.id }, [
-            _c("td", [
-              _vm._v(
-                "\r\n                        " +
-                  _vm._s(index + 1) +
-                  " \r\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(
-                "\r\n                        " +
-                  _vm._s(data.name) +
-                  "\r\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              data.score !== null
-                ? _c("span", [_vm._v(_vm._s(data.score))])
-                : _vm._e(),
+    _c("div", { staticClass: "table-responsive" }, [
+      _c("table", { staticClass: "table table-hover scores-table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.rankings, function(data, index) {
+            return _c("tr", { key: data.id }, [
+              _c("td", [
+                _vm._v(
+                  "\r\n                        " +
+                    _vm._s(index + 1) +
+                    " \r\n                        "
+                )
+              ]),
               _vm._v(" "),
-              data.score === null ? _c("span", [_vm._v(_vm._s(0))]) : _vm._e()
+              _c("td", [
+                _vm._v(
+                  "\r\n                        " +
+                    _vm._s(data.name) +
+                    "\r\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                data.score !== null
+                  ? _c("span", [_vm._v(_vm._s(data.score))])
+                  : _vm._e(),
+                _vm._v(" "),
+                data.score === null ? _c("span", [_vm._v(_vm._s(0))]) : _vm._e()
+              ])
             ])
-          ])
-        }),
-        0
-      )
+          }),
+          0
+        )
+      ])
     ])
   ])
 }
@@ -38296,54 +38302,56 @@ var render = function() {
       )
     ]),
     _vm._v(" "),
-    _c("table", { staticClass: "table table-hover scores-table" }, [
-      _vm._m(0),
-      _vm._v(" "),
-      _c(
-        "tbody",
-        _vm._l(_vm.scores, function(data) {
-          return _c("tr", { key: data.id }, [
-            _c("td", [
-              _vm._v(
-                "\r\n                        " +
-                  _vm._s(data.host_club.name) +
-                  "\r\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(
-                "\r\n                        " +
-                  _vm._s(data.host_score) +
-                  "\r\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(
-                "\r\n                            :\r\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(
-                "\r\n                        " +
-                  _vm._s(data.guest_score) +
-                  "\r\n\r\n                        "
-              )
-            ]),
-            _vm._v(" "),
-            _c("td", [
-              _vm._v(
-                "\r\n                            " +
-                  _vm._s(data.guest_club.name) +
-                  "\r\n                        "
-              )
+    _c("div", { staticClass: "table-responsive" }, [
+      _c("table", { staticClass: "table table-hover scores-table" }, [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "tbody",
+          _vm._l(_vm.scores, function(data) {
+            return _c("tr", { key: data.id }, [
+              _c("td", [
+                _vm._v(
+                  "\r\n                        " +
+                    _vm._s(data.host_club.name) +
+                    "\r\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\r\n                        " +
+                    _vm._s(data.host_score) +
+                    "\r\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\r\n                            :\r\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\r\n                        " +
+                    _vm._s(data.guest_score) +
+                    "\r\n\r\n                        "
+                )
+              ]),
+              _vm._v(" "),
+              _c("td", [
+                _vm._v(
+                  "\r\n                            " +
+                    _vm._s(data.guest_club.name) +
+                    "\r\n                        "
+                )
+              ])
             ])
-          ])
-        }),
-        0
-      )
+          }),
+          0
+        )
+      ])
     ])
   ])
 }

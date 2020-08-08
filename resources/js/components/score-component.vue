@@ -6,6 +6,7 @@
                               <option v-for='data in seasons' :value='data.id'>{{ data.name }}</option>
                             </select>
                         </div>
+    <div class="table-responsive">
     <table class="table table-hover scores-table">
                     <thead>
                         <tr>
@@ -37,7 +38,8 @@
                         </td>
                     </tr>
                     </tbody>
-                </table>        
+                </table>
+                </div>
 </div>
 </template>
 <script>  

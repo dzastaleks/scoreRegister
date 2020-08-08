@@ -15,7 +15,7 @@
 
                 <div class="card-body">
                     <div>
-                <table class="table table-hover season-table">
+            <table class="table table-responsive table-hover season-table w-100 d-block d-md-table">
                     <thead>
                         <tr>
                         <th scope="col">Season Name</th>
@@ -44,7 +44,7 @@
                         </td>
                         
                         <td>    
-                        <a href="/season/{{$season->id}}/edit" class="btn btn-primary shide"><i class="fas fa-edit"></i></a>
+                        <a href="/season/{{$season->id}}/edit" class="btn btn-primary"><i class="fas fa-edit"></i></a>
 
                         </td>
                         <td>
@@ -52,7 +52,7 @@
                                     @csrf
                                     <input type="hidden" name="_method" value="DELETE">
                             
-                                <button class="btn btn-danger shide" onclick="return confirm('Are you sure you want to delete this Season?');"><i class="fas fa-trash-alt"></i></button>
+                                <button class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this Season?');"><i class="fas fa-trash-alt"></i></button>
                                 </form>
                         </td>
                     </tr>
